@@ -55,10 +55,7 @@
       .bindPopup('Парк Панфиловцев').openPopup();
 
 
-    L.control.locate({
-      icon: 'fa fa-location-arrow',  
-      iconLoading: 'fa fa-spinner fa-spin',  
-    }).addTo(map);
+    L.control.locate().addTo(map);
 
     var marker = L.marker([43.231231, 76.873089], { icon: customIcon }).addTo(map)
       .bindPopup('Большая Алматинка').openPopup();
@@ -74,7 +71,7 @@
     map.on('locationfound', function (e) {
       var radius = e.accuracy / 2;
 
-      L.marker(e.latlng, { icon: customIcon }).addTo(map)
+      L.marker(e.latlng,).addTo(map)
         .bindPopup("Вы находитесь здесь!").openPopup();
 
       L.circle(e.latlng, radius).addTo(map);
